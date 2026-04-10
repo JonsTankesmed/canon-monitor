@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canon Monitor — Dutch Lake Residence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#F4F2EE;--bg2:#EDEAE4;--wh:#FDFCF9;
+  --bd:#DDD9D0;--bd2:#C8C2B4;
+  --gd:#1C3A28;--gm:#2B5740;--gl:#3D7055;--glt:#EBF2ED;
+  --am:#B8832A;--am2:#D4A040;--amt:#FDF3E0;
+  --tx:#1A1A18;--t2:#4A4740;--t3:#8A8578;--t4:#B5B0A5;
+  --re:#C0392B;--rlt:#FDECEA;--bl:#1D5E8C;--blt:#E8F1F8;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --r:4px;--rl:8px;
+  --sh:0 1px 3px rgba(28,58,40,.08),0 4px 16px rgba(28,58,40,.04);
+  --shl:0 4px 24px rgba(28,58,40,.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:15px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);min-height:100vh;padding-bottom:3rem}
+header{background:var(--wh);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100}
+.hi{max-width:1320px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:2rem;height:68px}
+.logo{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex-shrink:0}
+.logo-mark{width:38px;height:38px;background:var(--gd);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;color:#F4F2EE;font-weight:500}
+.logo-name{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--gd);letter-spacing:.02em;display:block;line-height:1.1}
+.logo-sub{font-size:.62rem;color:var(--t3);letter-spacing:.13em;text-transform:uppercase;font-weight:500}
+.ndiv{width:1px;height:26px;background:var(--bd);flex-shrink:0}
+nav{display:flex;gap:.15rem}
+.nb{background:none;border:none;cursor:pointer;padding:.48rem .9rem;border-radius:var(--r);font-family:var(--sans);font-size:.78rem;font-weight:500;color:var(--t3);transition:all .18s;letter-spacing:.05em;text-transform:uppercase}
+.nb:hover{color:var(--gd);background:var(--glt)}
+.nb.active{color:var(--gd);background:var(--glt);font-weight:600}
+.hr{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.cpill{display:flex;align-items:center;gap:.45rem;font-size:.7rem;color:var(--t3);font-family:var(--mono);background:var(--bg2);border:1px solid var(--bd);padding:.28rem .75rem;border-radius:20px}
+.cdot{width:6px;height:6px;border-radius:50%;background:var(--t4);flex-shrink:0}
+.cdot.ok{background:var(--gl)}.cdot.loading{background:var(--am);animation:bl .9s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.15rem;border-radius:var(--r);border:1px solid transparent;cursor:pointer;font-family:var(--sans);font-size:.77rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:all .18s;white-space:nowrap}
+.bp{background:var(--gd);color:#F4F2EE;border-color:var(--gd)}.bp:hover{background:var(--gm);border-color:var(--gm)}
+.bo{background:transparent;color:var(--gd);border-color:var(--gd)}.bo:hover{background:var(--glt)}
+.bg{background:transparent;color:var(--t2);border-color:var(--bd2)}.bg:hover{background:var(--bg2);color:var(--tx)}
+.bs{padding:.36rem .82rem;font-size:.71rem}
+.bd2{background:var(--rlt);color:var(--re);border-color:rgba(192,57,43,.2)}.bd2:hover{background:#f5c6c2}
+.page{max-width:1320px;margin:0 auto;padding:2.5rem 2rem}
+.tab{display:none}.tab.active{display:block}
+.ph{margin-bottom:2rem;display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.pt{font-family:var(--serif);font-size:2.1rem;font-weight:400;color:var(--gd);letter-spacing:.01em;line-height:1.1}
+.ps{font-size:.8rem;color:var(--t3);margin-top:.3rem;letter-spacing:.03em}
+.card{background:var(--wh);border:1px solid var(--bd);border-radius:var(--rl);padding:1.6rem;box-shadow:var(--sh)}
+.csm{padding:1.2rem 1.4rem}.cl{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);font-weight:600;margin-bottom:.45rem}
+.ct{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--gd);margin-bottom:1.1rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+@media(max-width:1100px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.g4,.g2{grid-template-columns:1fr}}
+.sv{font-family:var(--mono);font-size:1.5rem;font-weight:500;color:var(--gd);letter-spacing:-.02em}
+.ss{font-size:.74rem;color:var(--t3);margin-top:.22rem}
+.tag{display:inline-flex;align-items:center;padding:.16rem .58rem;border-radius:20px;font-size:.67rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.tag-dlr{background:var(--glt);color:var(--gm)}.tag-rcv{background:var(--blt);color:var(--bl)}
+.tag-t1{background:var(--glt);color:var(--gm)}.tag-t2{background:var(--amt);color:var(--am)}
+.tag-paid{background:var(--glt);color:var(--gl)}.tag-open{background:var(--amt);color:var(--am)}
+.def-b{display:inline-flex;padding:.1rem .48rem;border-radius:3px;background:var(--glt);color:var(--gm);font-size:.66rem;font-weight:600;letter-spacing:.04em}
+.inv-b{display:inline-flex;padding:.1rem .48rem;border-radius:3px;background:var(--amt);color:var(--am);font-size:.66rem;font-weight:600;letter-spacing:.04em}
+.ti{display:flex;align-items:center;gap:1rem;padding:.88rem 0;border-bottom:1px solid var(--bd)}.ti:last-child{border-bottom:none}
+.tbadge{width:36px;height:36px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.04em;flex-shrink:0}
+.tb1{background:var(--glt);color:var(--gm)}.tb2t{background:var(--amt);color:var(--am)}
+.tinfo{flex:1}.tlbl{font-size:.85rem;font-weight:500;color:var(--tx)}.tdl{font-size:.74rem;color:var(--t3);margin-top:.1rem}
+.tamt{font-family:var(--mono);font-size:.9rem;color:var(--gd);text-align:right}
+.dc{display:inline-flex;align-items:center;padding:.08rem .4rem;border-radius:10px;font-size:.63rem;font-family:var(--mono);font-weight:500;margin-left:.4rem}
+.dco{background:var(--glt);color:var(--gl)}.dcw{background:var(--amt);color:var(--am)}.dcu{background:var(--rlt);color:var(--re)}
+.br{display:flex;align-items:center;justify-content:space-between;padding:.58rem 0;border-bottom:1px solid var(--bd)}.br:last-child{border-bottom:none}
+.brl{font-size:.81rem;color:var(--t2)}.brn{font-size:.7rem;color:var(--t3);margin-top:.08rem}.brv{font-family:var(--mono);font-size:.88rem;color:var(--gd);font-weight:500}
+.tw{overflow-x:auto;border:1px solid var(--bd);border-radius:var(--rl);background:var(--wh);box-shadow:var(--sh)}
+table{width:100%;border-collapse:collapse;font-size:.81rem}
+thead th{padding:.78rem 1rem;text-align:left;font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);font-weight:600;white-space:nowrap;background:var(--bg2);border-bottom:1px solid var(--bd)}
+tbody tr{border-bottom:1px solid var(--bd);transition:background .12s}tbody tr:last-child{border-bottom:none}tbody tr:hover{background:#F7F5F1}
+tbody td{padding:.72rem 1rem;color:var(--t2);vertical-align:middle}
+td.mono{font-family:var(--mono);color:var(--tx);font-size:.78rem}td.amt{font-family:var(--mono);text-align:right;color:var(--tx)}td.dt{font-family:var(--mono);font-size:.76rem;color:var(--t3)}
+.dp{color:var(--gm);font-family:var(--mono);text-align:right}.dn{color:var(--re);font-family:var(--mono);text-align:right}.dz{color:var(--t3);font-family:var(--mono);text-align:right}
+.fg{margin-bottom:1.05rem}
+label{display:block;font-size:.69rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:.38rem;font-weight:600}
+input,select,textarea{width:100%;background:var(--wh);border:1px solid var(--bd2);border-radius:var(--r);padding:.62rem .9rem;color:var(--tx);font-family:var(--sans);font-size:.84rem;outline:none;transition:border-color .18s}
+input:focus,select:focus,textarea:focus{border-color:var(--gm);box-shadow:0 0 0 3px rgba(43,87,64,.1)}
+select option{background:var(--wh)}.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ip{position:relative}.ip span{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--t3);font-family:var(--mono);font-size:.8rem;pointer-events:none}.ip input{padding-left:1.7rem}
+.ih{font-size:.71rem;color:var(--am);margin-top:.28rem}
+.mbg{display:none;position:fixed;inset:0;background:rgba(26,26,24,.5);z-index:200;backdrop-filter:blur(3px);align-items:center;justify-content:center}.mbg.open{display:flex}
+.modal{background:var(--wh);border:1px solid var(--bd);border-radius:var(--rl);box-shadow:var(--shl);width:min(570px,95vw);max-height:92vh;overflow-y:auto;padding:2rem;position:relative;animation:min .2s ease}
+@keyframes min{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.mhd{margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:1px solid var(--bd)}
+.mt{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--gd)}
+.mc{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;color:var(--t3);cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:var(--r);transition:all .15s;font-size:1rem}.mc:hover{background:var(--bg2);color:var(--tx)}
+.mtabs{display:flex;border-bottom:1px solid var(--bd);margin-bottom:1.4rem}
+.mtab{flex:1;padding:.68rem 1rem;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:.76rem;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid transparent;transition:all .18s;margin-bottom:-1px}.mtab:hover{color:var(--gm)}.mtab.active{color:var(--gd);border-bottom-color:var(--gd);font-weight:600}
+.mp{display:none}.mp.active{display:block}
+.dzone{border:2px dashed var(--bd2);border-radius:var(--rl);padding:1.8rem;text-align:center;cursor:pointer;position:relative;transition:all .2s;background:var(--bg)}.dzone:hover,.dzone.drag-over{border-color:var(--gm);background:var(--glt)}.dzone input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.pp{margin-top:.9rem;background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:.8rem;font-family:var(--mono);font-size:.7rem;color:var(--t3);max-height:120px;overflow-y:auto;white-space:pre-wrap}
+.empty{text-align:center;padding:3.5rem 1rem;color:var(--t3)}.ei{font-size:1.9rem;margin-bottom:.65rem;opacity:.3}.el{font-size:.86rem}
+#toast-box{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;display:flex;flex-direction:column;gap:.5rem;pointer-events:none}
+.toast{background:var(--wh);border:1px solid var(--bd);border-radius:var(--r);padding:.72rem 1.1rem;font-size:.8rem;box-shadow:var(--shl);pointer-events:all;max-width:290px;animation:tin .22s ease;display:flex;align-items:center;gap:.55rem}
+@keyframes tin{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.toast-success{border-left:3px solid var(--gm)}.toast-error{border-left:3px solid var(--re)}.toast-info{border-left:3px solid var(--bl)}
+.tdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}.toast-success .tdot{background:var(--gm)}.toast-error .tdot{background:var(--re)}.toast-info .tdot{background:var(--bl)}
+.spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(28,58,40,.12);border-top-color:var(--gm);border-radius:50%;animation:spin .6s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+hr{border:none;border-top:1px solid var(--bd);margin:1.2rem 0}
+#sync-bar{position:fixed;bottom:0;left:0;right:0;z-index:90;background:var(--wh);border-top:1px solid var(--bd);padding:.4rem 2rem;display:flex;align-items:center;gap:1rem;font-size:.72rem;color:var(--t3)}
+.sdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}.sd-ok{background:var(--gl)}.sd-sync{background:var(--am);animation:bl .8s infinite}.sd-err{background:var(--re)}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="hi">
+  <a class="logo" href="#">
+    <div class="logo-mark">DL</div>
+    <div>
+      <span class="logo-name">Dutch Lake Residence</span>
+      <span class="logo-sub">Canon Monitor</span>
+    </div>
+  </a>
+  <div class="ndiv"></div>
+  <nav>
+    <button class="nb active" onclick="showTab('dashboard')">Dashboard</button>
+    <button class="nb" onclick="showTab('facturen')">Facturen</button>
+    <button class="nb" onclick="showTab('cpi')">CPI Data</button>
+  </nav>
+  <div class="hr">
+    <div class="cpill"><span class="cdot" id="cpi-dot"></span><span id="cpi-status-text">CBS laden&hellip;</span></div>
+    <button class="btn bg bs" onclick="doExcelExport()">&#8595;&nbsp;Excel</button>
+    <button class="btn bg bs" onclick="doPDFExport()">&#8595;&nbsp;PDF</button>
+    <button class="btn bp bs" onclick="openModal('modal-factuur');initFactuurForm()">+ Factuur</button>
+  </div>
+</div>
+</header>
+
+<div class="page tab active" id="tab-dashboard">
+  <div class="ph">
+    <div><div class="pt">Canon Monitor</div>
+    <div class="ps">Erfpacht DLR &rarr; RCV &bull; Ingangsdatum 16 december 2024 &bull; Art. 9.2 ondererfpacht</div></div>
+  </div>
+  <div class="g4" style="margin-bottom:1.5rem">
+    <div class="card csm"><div class="cl">Huidig erfpachtjaar</div><div class="sv" id="kpi-ej">&#8212;</div><div class="ss" id="kpi-ej-sub">&#8212;</div></div>
+    <div class="card csm"><div class="cl">Jaarbedrag DLR (basis)</div><div class="sv" id="kpi-dlr">&#8212;</div><div class="ss" id="kpi-dlr-sub">&#8212;</div></div>
+    <div class="card csm"><div class="cl">Jaarbedrag RCV (controle)</div><div class="sv" id="kpi-rcv">&#8212;</div><div class="ss" id="kpi-rcv-sub">&#8212;</div></div>
+    <div class="card csm"><div class="cl">Facturen geregistreerd</div><div class="sv" id="kpi-inv">&#8212;</div><div class="ss" id="kpi-inv-sub">&#8212;</div></div>
+  </div>
+  <div class="g2" style="margin-bottom:1.5rem">
+    <div class="card"><div class="ct">Komende termijnen</div><div id="termijnen-list"></div></div>
+    <div class="card"><div class="ct">Canonopbouw <span id="breakdown-jaar" style="font-family:var(--serif);font-style:italic;font-weight:300;color:var(--t3)"></span></div><div id="canon-breakdown"></div></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+      <div class="ct" style="margin-bottom:0">Recente facturen</div>
+      <button class="btn bg bs" onclick="showTab('facturen')">Alle facturen &rarr;</button>
+    </div>
+    <div id="recent-invoices"></div>
+  </div>
+</div>
+
+<div class="page tab" id="tab-facturen">
+  <div class="ph">
+    <div><div class="pt">Factuuroverzicht</div><div class="ps">Alle geregistreerde canonbetalingen</div></div>
+    <div style="display:flex;gap:.75rem;align-items:center;flex-wrap:wrap">
+      <select id="filter-jaar" onchange="renderFacturen()" style="width:auto;padding:.4rem .8rem;font-size:.78rem"><option value="">Alle jaren</option></select>
+      <select id="filter-partij" onchange="renderFacturen()" style="width:auto;padding:.4rem .8rem;font-size:.78rem"><option value="">Alle partijen</option><option value="DLR">DLR</option><option value="RCV">RCV</option></select>
+      <button class="btn bp bs" onclick="openModal('modal-factuur');initFactuurForm()">+ Factuur toevoegen</button>
+    </div>
+  </div>
+  <div id="facturen-wrap"><div class="empty"><div class="ei">&#128196;</div><div class="el">Nog geen facturen ingevoerd.</div></div></div>
+</div>
+
+<div class="page tab" id="tab-cpi">
+  <div class="ph">
+    <div><div class="pt">CPI &mdash; Indexatiedata</div><div class="ps">CBS 86141NED &bull; Consumentenprijzen 2025=100 &bull; Jaarcijfers</div></div>
+    <div style="display:flex;gap:.75rem;align-items:center">
+      <span id="cpi-updated" style="font-size:.73rem;color:var(--t3)"></span>
+      <button class="btn bo bs" onclick="refreshCPI(true)" id="cpi-btn">&#8635;&nbsp;Vernieuwen via CBS</button>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:1.25rem;border-left:3px solid var(--gd)">
+    <p style="font-size:.82rem;color:var(--t2);line-height:1.75">
+      De jaren <span class="def-b">2024</span> en <span class="def-b">2025</span> zijn definitief vastgesteld.
+      Latere jaren worden bijgewerkt via de CBS-knop. Canonindexatie start <strong>1 januari 2030</strong>.
+    </p>
+  </div>
+  <div id="cpi-table-wrap"></div>
+</div>
+
+<div class="mbg" id="modal-factuur">
+<div class="modal">
+  <button class="mc" onclick="closeModal('modal-factuur')">&#10005;</button>
+  <div class="mhd"><div class="mt">Factuur registreren</div></div>
+  <div class="mtabs">
+    <button class="mtab active" onclick="switchMTab('manual')">Handmatig invoeren</button>
+    <button class="mtab" onclick="switchMTab('pdf')">PDF uploaden</button>
+  </div>
+  <div class="mp active" id="panel-manual">
+    <div class="fr">
+      <div class="fg"><label>Factuurdatum</label><input type="date" id="fi-datum"></div>
+      <div class="fg"><label>Factuurnummer</label><input type="text" id="fi-nr" placeholder="bijv. 2026-001"></div>
+    </div>
+    <div class="fr">
+      <div class="fg"><label>Partij</label><select id="fi-partij"><option value="DLR">DLR &mdash; Dutch Lake Residence C.V.</option><option value="RCV">RCV &mdash; Recreatiecentrum Vlietland B.V.</option></select></div>
+      <div class="fg"><label>Termijn</label><select id="fi-termijn"><option value="T1">T1 &mdash; voor 2 april</option><option value="T2">T2 &mdash; voor 2 oktober</option></select></div>
+    </div>
+    <div class="fr">
+      <div class="fg"><label>Kalenderjaar</label><select id="fi-jaar"></select></div>
+      <div class="fg"><label>Type component</label><select id="fi-type"><option value="basis">Basis canon</option><option value="opslag">Opslag</option><option value="totaal">Totaal</option></select></div>
+    </div>
+    <div class="fr">
+      <div class="fg"><label>Verwacht bedrag</label><div class="ip"><span>&#8364;</span><input type="number" id="fi-verwacht" placeholder="0,00" step="0.01"></div><div class="ih" id="fi-hint"></div></div>
+      <div class="fg"><label>Gefactureerd bedrag</label><div class="ip"><span>&#8364;</span><input type="number" id="fi-gefact" placeholder="0,00" step="0.01"></div></div>
+    </div>
+    <div class="fr">
+      <div class="fg"><label>Betaalstatus</label><select id="fi-betaald"><option value="false">Openstaand</option><option value="true">Voldaan</option></select></div>
+      <div class="fg"><label>Betaaldatum (optioneel)</label><input type="date" id="fi-betaaldatum"></div>
+    </div>
+    <div class="fg"><label>Notities</label><textarea id="fi-notities" rows="2" placeholder="Optioneel..."></textarea></div>
+    <div style="display:flex;gap:.75rem;justify-content:flex-end;padding-top:.5rem">
+      <button class="btn bg" onclick="closeModal('modal-factuur')">Annuleren</button>
+      <button class="btn bp" onclick="submitFactuur()">Opslaan</button>
+    </div>
+  </div>
+  <div class="mp" id="panel-pdf">
+    <div class="dzone" id="drop-zone" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
+      <input type="file" accept="application/pdf" onchange="handleFile(event)">
+      <div style="font-size:1.7rem;opacity:.45;margin-bottom:.5rem">&#128196;</div>
+      <div style="font-weight:500;color:var(--t2);font-size:.86rem">Sleep een PDF hier naartoe</div>
+      <div style="font-size:.74rem;color:var(--t3);margin-top:.2rem">of klik om een bestand te kiezen</div>
+    </div>
+    <div class="pp" id="pdf-preview" style="display:none"></div>
+    <div id="pdf-fields" style="display:none;margin-top:1.25rem">
+      <p style="font-size:.78rem;color:var(--gm);margin-bottom:.9rem;font-weight:500">&#10003; PDF ingelezen. Controleer de velden.</p>
+      <div class="fr">
+        <div class="fg"><label>Factuurdatum</label><input type="date" id="fp-datum"></div>
+        <div class="fg"><label>Factuurnummer</label><input type="text" id="fp-nr"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Partij</label><select id="fp-partij"><option value="DLR">DLR</option><option value="RCV">RCV</option></select></div>
+        <div class="fg"><label>Termijn</label><select id="fp-termijn"><option value="T1">T1</option><option value="T2">T2</option></select></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Jaar</label><select id="fp-jaar"></select></div>
+        <div class="fg"><label>Gefactureerd bedrag</label><div class="ip"><span>&#8364;</span><input type="number" id="fp-bedrag" step="0.01"></div></div>
+      </div>
+      <div class="fg"><label>Type</label><select id="fp-type"><option value="totaal">Totaal</option><option value="basis">Basis canon</option><option value="opslag">Opslag</option></select></div>
+      <div style="display:flex;gap:.75rem;justify-content:flex-end;padding-top:.5rem">
+        <button class="btn bg" onclick="closeModal('modal-factuur')">Annuleren</button>
+        <button class="btn bp" onclick="submitPDFFactuur()">Opslaan</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="mbg" id="modal-delete">
+<div class="modal" style="max-width:370px">
+  <div class="mhd"><div class="mt">Factuur verwijderen?</div></div>
+  <p style="font-size:.84rem;color:var(--t2);margin-bottom:1.5rem">Deze actie kan niet ongedaan worden gemaakt.</p>
+  <div style="display:flex;gap:.75rem;justify-content:flex-end">
+    <button class="btn bg" onclick="closeModal('modal-delete')">Annuleren</button>
+    <button class="btn bd2" onclick="doDelete()">Verwijderen</button>
+  </div>
+</div>
+</div>
+
+<div id="toast-box"></div>
+<div id="sync-bar"><span class="sdot sd-ok" id="sync-dot"></span><span id="sync-label">Initialiseren...</span><span style="margin-left:auto;font-family:var(--mono)" id="sync-time"></span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+
+const _q = id => document.getElementById(id);
+const euro = n => n == null || isNaN(n) ? '—' : '€ ' + (+n).toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtD = d => { if(!d) return '—'; const dt=typeof d==='string'?new Date(d):d; return isNaN(dt)?String(d):dt.toLocaleDateString('nl-NL',{day:'2-digit',month:'2-digit',year:'numeric'}); };
+const fmtDT = d => { if(!d) return '—'; const dt=new Date(d); return dt.toLocaleDateString('nl-NL',{day:'2-digit',month:'2-digit',year:'numeric'})+' '+dt.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit'}); };
+const fmtTm = d => d.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit'});
+const isoD  = () => new Date().toISOString().slice(0,10);
+
+function toast(msg,type='info'){const t=document.createElement('div');t.className='toast toast-'+type;t.innerHTML='<span class="tdot"></span>'+msg;_q('toast-box').appendChild(t);setTimeout(()=>t.remove(),4000);}
+function openModal(id){_q(id).classList.add('open');}
+function closeModal(id){_q(id).classList.remove('open');}
+document.querySelectorAll('.mbg').forEach(b=>b.addEventListener('click',e=>{if(e.target===b)b.classList.remove('open');}));
+
+function showTab(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  _q('tab-'+name).classList.add('active');
+  const idx={dashboard:0,facturen:1,cpi:2}[name];
+  document.querySelectorAll('.nb')[idx]?.classList.add('active');
+  if(name==='facturen') renderFacturen();
+  if(name==='cpi') renderCPI();
+}
+
+function switchMTab(tab){
+  document.querySelectorAll('.mtab').forEach((b,i)=>b.classList.toggle('active',(i===0)===(tab==='manual')));
+  _q('panel-manual').classList.toggle('active',tab==='manual');
+  _q('panel-pdf').classList.toggle('active',tab==='pdf');
+}
+
+// Canon berekening
+const PARAMS={DLR:{Y:22220.80,X:130128.10},RCV:{Y:22738.50,X:133159.82}};
+const CANON_START=new Date(2024,11,16);
+const IDX_START=2030;
+function groeifactor(ej){return ej>=11?1.0:({6:.5,7:.6,8:.7,9:.8,10:.9}[ej]??1.0);}
+function erfpachtjaar(d){d=d||new Date();const ms=d-CANON_START;return ms<0?5:Math.floor(ms/(365.25*24*3600*1000))+6;}
+function ejVoorTermijn(j,t){return erfpachtjaar(t==='T1'?new Date(j,2,1):new Date(j,8,1));}
+function idxFactor(j,cpiData){if(j<IDX_START)return 1;const r=cpiData.find(r=>r.jaar===j-1);return(r&&r.cpi)?r.cpi/100:1;}
+function canonJaar(p,ej,idx){const {Y,X}=PARAMS[p];return(Y+(X-Y)*groeifactor(ej))*idx;}
+function canonTermijn(p,j,t,cpiData){return canonJaar(p,ejVoorTermijn(j,t),idxFactor(j,cpiData))/2;}
+
+// State
+const LS_KEY='dlr_canon_v4';
+function loadLS(){try{const r=localStorage.getItem(LS_KEY);if(r)return JSON.parse(r);}catch(e){}return{invoices:[],cpi:{updated:null,data:[]}};}
+function saveLS(){localStorage.setItem(LS_KEY,JSON.stringify(STATE));}
+let STATE=loadLS();
+function ensureCPISeed(){
+  const seed=[{jaar:2024,cpi:96.90,mutatie:.033,def:true},{jaar:2025,cpi:100.00,mutatie:.032,def:true}];
+  [2024,2025,2026,2027,2028,2029,2030,2031].forEach(j=>{
+    if(!STATE.cpi.data.find(r=>r.jaar===j)){
+      STATE.cpi.data.push(seed.find(s=>s.jaar===j)||{jaar:j,cpi:null,mutatie:null,def:false});
+    }
+  });
+  STATE.cpi.data.sort((a,b)=>a.jaar-b.jaar);
+}
+ensureCPISeed();
+
+// Supabase - credentials injected at build time
+const SB_URL='https://orfmdekzddnrpnouoqpi.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yZm1kZWt6ZGRucnBub3VvcXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2NTA2NTUsImV4cCI6MjA5MTIyNjI1NX0.CPmYtazgjNvpO4tfqA8Jyz4V16witSAYmsk6i5AHkEg';
+let sb=null, sbOnline=false;
+
+function initSB(){
+  if(!window.supabase){setSyncStatus('err','Supabase lib niet geladen');return false;}
+  try{sb=window.supabase.createClient(SB_URL,SB_KEY);return true;}
+  catch(e){setSyncStatus('err','Supabase init fout: '+e.message);return false;}
+}
+
+async function sbLoad(){
+  setSyncStatus('sync','Data ophalen uit Supabase...');
+  try{
+    const[fR,cR]=await Promise.all([
+      sb.from('canon_facturen').select('*').order('aangemaakt',{ascending:false}),
+      sb.from('canon_cpi').select('*').order('jaar')
+    ]);
+    if(fR.error)throw fR.error;
+    if(cR.error)throw cR.error;
+    STATE.invoices=(fR.data||[]).map(r=>mapInv(r));
+    if(cR.data&&cR.data.length){
+      STATE.cpi.data=cR.data.map(r=>mapCPI(r));
+      const last=cR.data.reduce((m,r)=>r.bijgewerkt>m?r.bijgewerkt:m,'');
+      STATE.cpi.updated=last||STATE.cpi.updated;
+    }
+    sbOnline=true;
+    setSyncStatus('ok','Verbonden met Supabase');
+    saveLS();updateJaarFilter();renderAll();sbSubscribe();
+  }catch(e){
+    setSyncStatus('err','Supabase fout: '+e.message);
+    toast('Fout bij laden: '+e.message,'error');
+    renderAll();
+  }
+}
+
+function mapInv(r){return{id:r.id,datum:r.datum,nummer:r.nummer||'',partij:r.partij,termijn:r.termijn,jaar:r.jaar,type:r.type,verwacht:r.verwacht!=null?+r.verwacht:null,gefactureerd:r.gefactureerd!=null?+r.gefactureerd:null,betaald:r.betaald,betaaldatum:r.betaaldatum,notities:r.notities||'',erfpachtjaar:r.erfpachtjaar,aangemaakt:r.aangemaakt};}
+function mapCPI(r){return{jaar:r.jaar,cpi:r.cpi!=null?+r.cpi:null,mutatie:r.mutatie!=null?+r.mutatie:null,def:r.definitief};}
+
+function sbSubscribe(){
+  if(!sb)return;
+  sb.channel('canon-live')
+    .on('postgres_changes',{event:'*',schema:'public',table:'canon_facturen'},p=>{
+      const {eventType:ev,new:n,old:o}=p;
+      if(ev==='INSERT'||ev==='UPDATE'){const i=STATE.invoices.findIndex(x=>x.id===n.id);if(i>=0)STATE.invoices[i]=mapInv(n);else STATE.invoices.unshift(mapInv(n));}
+      else if(ev==='DELETE')STATE.invoices=STATE.invoices.filter(x=>x.id!==o.id);
+      updateJaarFilter();renderAll();setSyncStatus('ok','Gesynchroniseerd');
+    })
+    .on('postgres_changes',{event:'*',schema:'public',table:'canon_cpi'},p=>{
+      const {eventType:ev,new:n}=p;
+      if(ev==='INSERT'||ev==='UPDATE'){const i=STATE.cpi.data.findIndex(r=>r.jaar===n.jaar);if(i>=0)STATE.cpi.data[i]=mapCPI(n);else STATE.cpi.data.push(mapCPI(n));}
+      renderAll();
+    })
+    .subscribe(s=>{if(s==='SUBSCRIBED')setSyncStatus('ok','Live gesynchroniseerd');});
+}
+
+async function sbInsert(inv){
+  if(!sb||!sbOnline)return;
+  setSyncStatus('sync','Opslaan...');
+  const {error}=await sb.from('canon_facturen').insert({id:inv.id,datum:inv.datum,nummer:inv.nummer||null,partij:inv.partij,termijn:inv.termijn,jaar:inv.jaar,type:inv.type,verwacht:inv.verwacht,gefactureerd:inv.gefactureerd,betaald:inv.betaald,betaaldatum:inv.betaaldatum||null,notities:inv.notities||null,erfpachtjaar:inv.erfpachtjaar});
+  if(error){toast('Opslaan mislukt: '+error.message,'error');setSyncStatus('err','Opslaan mislukt');}
+  else setSyncStatus('ok','Gesynchroniseerd '+fmtTm(new Date()));
+}
+
+async function sbDelete(id){
+  if(!sb||!sbOnline)return;
+  setSyncStatus('sync','Verwijderen...');
+  const {error}=await sb.from('canon_facturen').delete().eq('id',id);
+  if(error){toast('Verwijderen mislukt: '+error.message,'error');setSyncStatus('err','Verwijderen mislukt');}
+  else setSyncStatus('ok','Gesynchroniseerd '+fmtTm(new Date()));
+}
+
+async function sbUpsertCPI(rows){
+  if(!sb||!sbOnline)return;
+  const data=rows.map(r=>({jaar:r.jaar,cpi:r.cpi,mutatie:r.mutatie,definitief:r.def||false,bijgewerkt:new Date().toISOString()}));
+  const {error}=await sb.from('canon_cpi').upsert(data,{onConflict:'jaar'});
+  if(error)toast('CPI opslaan mislukt: '+error.message,'error');
+}
+
+function setSyncStatus(state,txt){
+  const d=_q('sync-dot'),l=_q('sync-label');
+  if(d)d.className='sdot '+(state==='ok'?'sd-ok':state==='sync'?'sd-sync':'sd-err');
+  if(l)l.textContent=txt;
+  if(state==='ok'){const t=_q('sync-time');if(t)t.textContent=fmtTm(new Date());}
+}
+function setCPIStatus(state,txt){
+  const d=_q('cpi-dot'),t=_q('cpi-status-text');
+  if(d)d.className='cdot'+(state==='ok'?' ok':state==='loading'?' loading':'');
+  if(t)t.textContent=txt;
+}
+
+// CBS CPI
+const CBS_API="https://opendata.cbs.nl/ODataApi/odata/86141NED/TypedDataSet?$filter=Bestedingscategorieen eq '000000' and endswith(Perioden,'JJ00')&$select=Perioden,CPI_1,Jaarmutatie_2&$orderby=Perioden&$format=json";
+
+async function refreshCPI(force=false){
+  if(!force&&STATE.cpi.updated){const h=(Date.now()-new Date(STATE.cpi.updated).getTime())/3600000;if(h<24){setCPIStatus('ok','CBS bijgewerkt '+fmtDT(STATE.cpi.updated));return;}}
+  setCPIStatus('loading','CBS ophalen...');
+  const btn=_q('cpi-btn');if(btn){btn.disabled=true;btn.innerHTML='<span class="spinner"></span>&nbsp;Laden...';}
+  try{
+    const res=await fetch(CBS_API);if(!res.ok)throw new Error('HTTP '+res.status);
+    const json=await res.json();
+    const vaste={2024:1,2025:1};const newRows=[];
+    for(const row of json.value||[]){
+      const m=(row.Perioden||'').match(/^(\d{4})JJ00/);if(!m)continue;
+      const j=+m[1];if(j<2024||j>2060||vaste[j])continue;
+      const c=parseFloat(row.CPI_1);if(isNaN(c))continue;
+      const mut=row.Jaarmutatie_2!=null?parseFloat(row.Jaarmutatie_2)/100:null;
+      const ex=STATE.cpi.data.find(r=>r.jaar===j);
+      if(ex){ex.cpi=c;ex.mutatie=mut;}else STATE.cpi.data.push({jaar:j,cpi:c,mutatie:mut,def:false});
+      newRows.push({jaar:j,cpi:c,mutatie:mut,def:false});
+    }
+    STATE.cpi.updated=new Date().toISOString();saveLS();
+    setCPIStatus('ok','CBS bijgewerkt '+fmtDT(STATE.cpi.updated));
+    toast('CPI-data bijgewerkt via CBS','success');
+    if(newRows.length)await sbUpsertCPI(newRows);
+    renderAll();
+  }catch(e){setCPIStatus('','CBS niet bereikbaar');toast('CBS API niet bereikbaar','error');}
+  finally{if(btn){btn.disabled=false;btn.innerHTML='&#8635;&nbsp;Vernieuwen via CBS';}}
+}
+
+// Dashboard render
+function renderDashboard(){
+  const now=new Date(),ej=erfpachtjaar(now),gf=groeifactor(ej),cd=STATE.cpi.data;
+  const idx=idxFactor(now.getFullYear(),cd);
+  const dlrJ=canonJaar('DLR',ej,idx),rcvJ=canonJaar('RCV',ej,idx);
+  _q('kpi-ej').textContent='Jaar '+ej;
+  const ejStart=new Date(CANON_START.getTime()+(ej-6)*365.25*24*3600*1000);
+  const ejEnd=new Date(CANON_START.getTime()+(ej-5)*365.25*24*3600*1000);
+  _q('kpi-ej-sub').textContent=fmtD(ejStart)+' – '+fmtD(ejEnd);
+  _q('kpi-dlr').textContent=euro(dlrJ);_q('kpi-dlr-sub').textContent='groeifactor '+gf.toFixed(1);
+  _q('kpi-rcv').textContent=euro(rcvJ);_q('kpi-rcv-sub').textContent='groeifactor '+gf.toFixed(1);
+  const open=STATE.invoices.filter(i=>!i.betaald).length;
+  _q('kpi-inv').textContent=STATE.invoices.length;_q('kpi-inv-sub').textContent=open+' openstaand';
+  renderTermijnen(now,cd,ej);renderBreakdown(now,cd,ej,gf,idx);renderRecent();
+}
+
+function renderTermijnen(now,cd,ej){
+  const y=now.getFullYear(),t1=new Date(y,3,2),t2=new Date(y,9,2),t1n=new Date(y+1,3,2);
+  const items=[];
+  if(now<=t1)items.push({jaar:y,t:'T1',dl:t1});
+  if(now<=t2)items.push({jaar:y,t:'T2',dl:t2});
+  items.push({jaar:y+1,t:'T1',dl:t1n});
+  if(items.length>3)items.length=3;
+  _q('termijnen-list').innerHTML=items.map(({jaar,t,dl})=>{
+    const amt=canonTermijn('DLR',jaar,t,cd);
+    const days=Math.ceil((dl-now)/86400000);
+    const chip=days<=14?'dcu':days<=30?'dcw':'dco';
+    return '<div class="ti"><div class="tbadge '+(t==='T1'?'tb1':'tb2t')+'">'+t+'</div>'
+      +'<div class="tinfo"><div class="tlbl">'+jaar+' &mdash; '+t+'</div>'
+      +'<div class="tdl">deadline '+fmtD(dl)+'<span class="dc '+chip+'">'+days+'d</span></div></div>'
+      +'<div class="tamt">'+euro(amt)+'</div></div>';
+  }).join('');
+}
+
+function renderBreakdown(now,cd,ej,gf,idx){
+  const j=now.getFullYear();
+  _q('breakdown-jaar').textContent=j;
+  const dlrT1=canonTermijn('DLR',j,'T1',cd),dlrT2=canonTermijn('DLR',j,'T2',cd),rcvT1=canonTermijn('RCV',j,'T1',cd);
+  const noIdx=j<IDX_START?'geen indexatie (voor 2030)':'factor '+idx.toFixed(4);
+  _q('canon-breakdown').innerHTML=
+    '<div class="br"><div><div class="brl">DLR basis &mdash; T1</div><div class="brn">erfpachtjaar '+ej+', factor '+gf.toFixed(1)+'</div></div><div class="brv">'+euro(dlrT1)+'</div></div>'
+    +'<div class="br"><div class="brl">DLR basis &mdash; T2</div><div class="brv">'+euro(dlrT2)+'</div></div>'
+    +'<div class="br" style="background:var(--glt);margin:0 -1.6rem;padding:.6rem 1.6rem">'
+    +'<div class="brl" style="color:var(--gd);font-weight:600">DLR jaarbedrag totaal</div>'
+    +'<div class="brv" style="color:var(--gd)">'+euro(dlrT1+dlrT2)+'</div></div>'
+    +'<div class="br" style="margin-top:.1rem"><div class="brl">RCV controle &mdash; per termijn</div><div class="brv" style="color:var(--bl)">'+euro(rcvT1)+'</div></div>'
+    +'<div style="margin-top:.75rem;font-size:.74rem;color:var(--t3)">Indexatie: '+noIdx+'</div>';
+}
+
+function renderRecent(){
+  const recent=[...STATE.invoices].sort((a,b)=>new Date(b.aangemaakt||b.datum)-new Date(a.aangemaakt||a.datum)).slice(0,5);
+  _q('recent-invoices').innerHTML=recent.length?invTable(recent,false)
+    :'<div class="empty"><div class="ei">&#128203;</div><div class="el">Nog geen facturen. Klik op &ldquo;+ Factuur&rdquo; om te beginnen.</div></div>';
+}
+
+// Facturen render
+function renderFacturen(){
+  let list=[...STATE.invoices];
+  const fj=_q('filter-jaar').value,fp=_q('filter-partij').value;
+  if(fj)list=list.filter(i=>String(i.jaar)===fj);
+  if(fp)list=list.filter(i=>i.partij===fp);
+  list.sort((a,b)=>new Date(b.datum)-new Date(a.datum));
+  _q('facturen-wrap').innerHTML=list.length?invTable(list,true)
+    :'<div class="empty"><div class="ei">&#128196;</div><div class="el">Geen facturen gevonden.</div></div>';
+}
+
+function invTable(rows,showDel){
+  const r=rows.map(inv=>{
+    const diff=inv.verwacht!=null&&inv.gefactureerd!=null?inv.gefactureerd-inv.verwacht:null;
+    const dc=diff==null?'':diff>0.5?'dp':diff<-0.5?'dn':'dz';
+    const dt=diff==null?'—':(diff>=0?'+':'')+euro(diff);
+    return '<tr>'
+      +'<td class="dt">'+fmtD(inv.datum)+'</td>'
+      +'<td class="mono">'+(inv.nummer||'—')+'</td>'
+      +'<td><span class="tag tag-'+inv.partij.toLowerCase()+'">'+inv.partij+'</span></td>'
+      +'<td><span class="tag tag-'+inv.termijn.toLowerCase()+'">'+inv.termijn+'</span></td>'
+      +'<td style="font-family:var(--mono);font-size:.76rem;color:var(--t3)">'+inv.jaar+'</td>'
+      +'<td style="font-size:.75rem;color:var(--t3)">'+inv.type+'</td>'
+      +'<td class="amt">'+(inv.verwacht!=null?euro(inv.verwacht):'—')+'</td>'
+      +'<td class="amt">'+(inv.gefactureerd!=null?euro(inv.gefactureerd):'—')+'</td>'
+      +'<td class="'+dc+'">'+dt+'</td>'
+      +'<td><span class="tag '+(inv.betaald?'tag-paid':'tag-open')+'">'+(inv.betaald?'Betaald':'Open')+'</span></td>'
+      +(showDel?'<td><button class="btn bg bs" style="padding:.2rem .5rem;font-size:.68rem" data-id="'+inv.id+'" onclick="askDelete(this.dataset.id)">&#10005;</button></td>':'<td></td>')
+      +'</tr>';
+  }).join('');
+  return '<div class="tw"><table>'
+    +'<thead><tr><th>Datum</th><th>Nummer</th><th>Partij</th><th>Termijn</th><th>Jaar</th><th>Type</th>'
+    +'<th style="text-align:right">Verwacht</th><th style="text-align:right">Gefactureerd</th>'
+    +'<th style="text-align:right">Verschil</th><th>Status</th><th></th></tr></thead>'
+    +'<tbody>'+r+'</tbody></table></div>';
+}
+
+// CPI render
+function renderCPI(){
+  const rows=[...STATE.cpi.data].sort((a,b)=>a.jaar-b.jaar).map(r=>{
+    const idx=idxFactor(r.jaar,STATE.cpi.data),t1=canonTermijn('DLR',r.jaar,'T1',STATE.cpi.data);
+    return '<tr>'
+      +'<td class="mono">'+r.jaar+'</td>'
+      +'<td class="amt">'+(r.cpi!=null?r.cpi.toFixed(2):'<em style="color:var(--t4)">n.b.</em>')+'</td>'
+      +'<td class="amt">'+(r.mutatie!=null?(r.mutatie*100).toFixed(1)+'%':'<em style="color:var(--t4)">n.b.</em>')+'</td>'
+      +'<td class="amt" style="font-family:var(--mono);color:var(--t2)">'+idx.toFixed(4)+'</td>'
+      +'<td class="amt">'+euro(t1)+'</td>'
+      +'<td>'+(r.def?'<span class="def-b">Definitief</span>':'<span class="inv-b">Invulbaar</span>')+'</td>'
+      +'</tr>';
+  }).join('');
+  _q('cpi-table-wrap').innerHTML='<div class="tw"><table>'
+    +'<thead><tr><th>Jaar</th><th style="text-align:right">CPI (2025=100)</th><th style="text-align:right">Jaarmutatie</th>'
+    +'<th style="text-align:right">Indexatiefactor</th><th style="text-align:right">DLR T1 basis</th><th>Status</th></tr></thead>'
+    +'<tbody>'+rows+'</tbody></table></div>';
+  _q('cpi-updated').textContent=STATE.cpi.updated?'Bijgewerkt: '+fmtDT(STATE.cpi.updated):'Nog niet bijgewerkt via CBS';
+}
+
+// Factuur form
+function initFactuurForm(){
+  const y=new Date().getFullYear();
+  const opts=Array.from({length:6},(_,i)=>y-1+i);
+  ['fi-jaar','fp-jaar'].forEach(id=>{const el=_q(id);if(el)el.innerHTML=opts.map(j=>'<option value="'+j+'"'+(j===y?' selected':'')+'>'+j+'</option>').join('');});
+  _q('fi-datum').value=new Date().toISOString().slice(0,10);
+  updateHint();
+  ['fi-jaar','fi-termijn','fi-partij'].forEach(id=>{const el=_q(id);if(el){el.removeEventListener('change',updateHint);el.addEventListener('change',updateHint);}});
+}
+
+function updateHint(){
+  const j=parseInt(_q('fi-jaar')?.value),t=_q('fi-termijn')?.value,p=_q('fi-partij')?.value;
+  if(!j||!t||!p)return;
+  const amt=canonTermijn(p,j,t,STATE.cpi.data);
+  _q('fi-hint').textContent='Berekend: '+euro(amt);
+  if(!_q('fi-verwacht').value)_q('fi-verwacht').value=amt.toFixed(2);
+}
+
+async function submitFactuur(){
+  const datum=_q('fi-datum').value;
+  if(!datum){toast('Vul een factuurdatum in','error');return;}
+  const jaar=parseInt(_q('fi-jaar').value),termijn=_q('fi-termijn').value,partij=_q('fi-partij').value;
+  const inv={
+    id:crypto.randomUUID(),datum,nummer:_q('fi-nr').value||'',
+    partij,termijn,jaar,type:_q('fi-type').value,
+    verwacht:parseFloat(_q('fi-verwacht').value)||null,
+    gefactureerd:parseFloat(_q('fi-gefact').value)||null,
+    betaald:_q('fi-betaald').value==='true',
+    betaaldatum:_q('fi-betaaldatum').value||null,
+    notities:_q('fi-notities').value,
+    erfpachtjaar:ejVoorTermijn(jaar,termijn),
+    aangemaakt:new Date().toISOString()
+  };
+  STATE.invoices.unshift(inv);saveLS();updateJaarFilter();renderAll();
+  closeModal('modal-factuur');toast('Factuur opgeslagen','success');
+  await sbInsert(inv);
+}
+
+// PDF
+if(typeof pdfjsLib!=='undefined')pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+function handleDrop(e){e.preventDefault();e.currentTarget.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f&&f.type==='application/pdf')parsePDF(f);else toast('Selecteer een PDF','error');}
+function handleFile(e){const f=e.target.files[0];if(f)parsePDF(f);}
+async function parsePDF(file){
+  const prev=_q('pdf-preview');prev.style.display='block';prev.textContent='PDF wordt ingelezen...';
+  _q('pdf-fields').style.display='none';
+  try{
+    const buf=await file.arrayBuffer();const pdf=await pdfjsLib.getDocument({data:buf}).promise;
+    let txt='';for(let i=1;i<=Math.min(pdf.numPages,3);i++){const pg=await pdf.getPage(i);const c=await pg.getTextContent();txt+=c.items.map(s=>s.str).join(' ')+'\n';}
+
+    prev.textContent=txt.slice(0,700)+(txt.length>700?'...':'');
+    fillPDFForm(txt);_q('pdf-fields').style.display='block';
+  }catch(e){prev.textContent='Fout: '+e.message;toast('PDF kon niet worden gelezen','error');}
+}
+function fillPDFForm(txt){
+  const dm=txt.match(/(\d{1,2})[\-\/](\d{1,2})[\-\/](\d{4})/);
+  if(dm){try{const d=new Date(dm[3],+dm[2]-1,+dm[1]);if(!isNaN(d))_q('fp-datum').value=d.toISOString().slice(0,10);}catch(e){}}
+  const amounts=[...txt.matchAll(/€?\s*([\d.]+,\d{2})/g)].map(m=>parseFloat(m[1].replace(/\./g,'').replace(',','.'))).filter(n=>n>1000&&n<200000);
+  if(amounts.length)_q('fp-bedrag').value=Math.max(...amounts).toFixed(2);
+  if(/T1|termijn\s*1|april/i.test(txt))_q('fp-termijn').value='T1';
+  else if(/T2|termijn\s*2|oktober/i.test(txt))_q('fp-termijn').value='T2';
+  const jm=txt.match(/20(2[4-9]|[3-9]\d)/);
+  if(jm){const j=+jm[0];for(const o of _q('fp-jaar').options)if(+o.value===j){o.selected=true;break;}}
+  if(/DLR|Dutch Lake/i.test(txt))_q('fp-partij').value='DLR';
+  else if(/RCV|Recreatiecentrum/i.test(txt))_q('fp-partij').value='RCV';
+  const nm=txt.match(/factuur(?:nummer)?\s*[:\-]?\s*([A-Z0-9\-\/]{4,20})/i);
+  if(nm)_q('fp-nr').value=nm[1].trim();
+}
+async function submitPDFFactuur(){
+  const jaar=parseInt(_q('fp-jaar').value),termijn=_q('fp-termijn').value,partij=_q('fp-partij').value;
+  const inv={id:crypto.randomUUID(),datum:_q('fp-datum').value,nummer:_q('fp-nr').value||'',partij,termijn,jaar,type:_q('fp-type').value,
+    verwacht:canonTermijn(partij,jaar,termijn,STATE.cpi.data),gefactureerd:parseFloat(_q('fp-bedrag').value)||null,
+    betaald:false,betaaldatum:null,notities:'PDF upload',erfpachtjaar:ejVoorTermijn(jaar,termijn),aangemaakt:new Date().toISOString()};
+  STATE.invoices.unshift(inv);saveLS();updateJaarFilter();renderAll();
+  closeModal('modal-factuur');toast('Factuur opgeslagen vanuit PDF','success');
+  await sbInsert(inv);
+}
+
+// Delete
+let pendingDelId=null;
+function askDelete(id){pendingDelId=id;openModal('modal-delete');}
+async function doDelete(){
+  if(!pendingDelId)return;
+  const id=pendingDelId;pendingDelId=null;
+  STATE.invoices=STATE.invoices.filter(i=>i.id!==id);
+  saveLS();updateJaarFilter();renderAll();
+  closeModal('modal-delete');toast('Factuur verwijderd','info');
+  await sbDelete(id);
+}
+
+// Exports
+function doExcelExport(){
+  if(!window.XLSX){toast('XLSX niet geladen','error');return;}
+  const wb=XLSX.utils.book_new();
+  const fRows=STATE.invoices.sort((a,b)=>new Date(a.datum)-new Date(b.datum)).map(i=>({'Datum':i.datum,'Nummer':i.nummer,'Partij':i.partij,'Termijn':i.termijn,'Jaar':i.jaar,'Erfpachtjaar':i.erfpachtjaar,'Type':i.type,'Verwacht (€)':i.verwacht,'Gefactureerd (€)':i.gefactureerd,'Verschil (€)':i.verwacht!=null&&i.gefactureerd!=null?i.gefactureerd-i.verwacht:null,'Betaald':i.betaald?'Ja':'Nee','Betaaldatum':i.betaaldatum||'','Notities':i.notities||''}));
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(fRows.length?fRows:[{Info:'Geen facturen'}]),'Facturen');
+  const cRows=STATE.cpi.data.sort((a,b)=>a.jaar-b.jaar).map(r=>({'Jaar':r.jaar,'CPI':r.cpi,'Mutatie %':r.mutatie!=null?+(r.mutatie*100).toFixed(2):null,'Indexatiefactor':+idxFactor(r.jaar,STATE.cpi.data).toFixed(4),'Status':r.def?'Definitief':'Invulbaar'}));
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(cRows),'CPI');
+  XLSX.writeFile(wb,'DLR_Canon_Monitor_'+isoD()+'.xlsx');toast('Excel geëxporteerd','success');
+}
+
+function doPDFExport(){
+  if(!window.jspdf){toast('jsPDF niet geladen','error');return;}
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'});
+  const now=new Date(),ej=erfpachtjaar(now),gf=groeifactor(ej),idx=idxFactor(now.getFullYear(),STATE.cpi.data);
+  doc.setFillColor(244,242,238);doc.rect(0,0,297,210,'F');
+  doc.setFillColor(28,58,40);doc.rect(0,0,297,26,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(14);doc.setTextColor(244,242,238);
+  doc.text('Dutch Lake Residence — Canon Monitor',14,11);
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(180,210,190);
+  doc.text('Erfpacht DLR → RCV  ·  Gegenereerd '+fmtD(now)+'  ·  Erfpachtjaar '+ej+'  ·  Groeifactor '+gf.toFixed(1),14,19);
+  const kpis=[{l:'DLR jaarbedrag',v:euro(canonJaar('DLR',ej,idx))},{l:'RCV jaarbedrag',v:euro(canonJaar('RCV',ej,idx))},{l:'CPI 2025=100',v:String(STATE.cpi.data.find(r=>r.jaar===2025)?.cpi??'—')},{l:'Facturen',v:String(STATE.invoices.length)}];
+  kpis.forEach((k,i)=>{const x=14+i*70;doc.setFillColor(253,252,249);doc.roundedRect(x,30,66,20,1,1,'F');doc.setFontSize(6.5);doc.setTextColor(138,133,120);doc.setFont('helvetica','normal');doc.text(k.l,x+3,37);doc.setFontSize(11);doc.setTextColor(28,58,40);doc.setFont('helvetica','bold');doc.text(k.v,x+3,46);doc.setFont('helvetica','normal');});
+  if(STATE.invoices.length){
+    doc.setFontSize(9);doc.setTextColor(28,58,40);doc.setFont('helvetica','bold');doc.text('Factuuroverzicht',14,58);
+    const rows=STATE.invoices.sort((a,b)=>new Date(b.datum)-new Date(a.datum)).map(i=>{const diff=i.verwacht!=null&&i.gefactureerd!=null?i.gefactureerd-i.verwacht:null;return[i.datum,i.nummer||'—',i.partij,i.termijn,String(i.jaar),i.type,i.verwacht?euro(i.verwacht):'—',i.gefactureerd?euro(i.gefactureerd):'—',diff!=null?(diff>=0?'+':'')+euro(diff):'—',i.betaald?'Betaald':'Open'];});
+    doc.autoTable({startY:62,head:[['Datum','Nummer','Partij','Termijn','Jaar','Type','Verwacht','Gefactureerd','Verschil','Status']],body:rows,styles:{fontSize:7.5,cellPadding:2.5,textColor:[74,71,64]},headStyles:{fillColor:[28,58,40],textColor:[200,220,210],fontStyle:'bold',fontSize:7},alternateRowStyles:{fillColor:[242,240,236]},bodyStyles:{fillColor:[253,252,249]},margin:{left:14,right:14}});
+  }
+  doc.save('DLR_Canon_Monitor_'+isoD()+'.pdf');toast('PDF geëxporteerd','success');
+}
+
+function updateJaarFilter(){
+  const sel=_q('filter-jaar'),cur=sel.value;
+  const jaren=[...new Set(STATE.invoices.map(i=>i.jaar))].sort();
+  sel.innerHTML='<option value="">Alle jaren</option>'+jaren.map(j=>'<option value="'+j+'"'+(String(j)===cur?' selected':'')+'>'+j+'</option>').join('');
+}
+
+function renderAll(){renderDashboard();renderFacturen();renderCPI();updateJaarFilter();}
+
+document.addEventListener('DOMContentLoaded',async()=>{
+  ensureCPISeed();updateJaarFilter();renderAll();
+  if(initSB()){await sbLoad();}
+  else{setSyncStatus('err','Offline — data alleen lokaal opgeslagen');await refreshCPI(false);}
+});
+
+</script>
+</body>
+</html>
