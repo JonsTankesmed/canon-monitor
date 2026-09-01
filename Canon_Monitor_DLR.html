@@ -1,3 +1,4 @@
+<!-- Gesmeden door Jons Tankesmed — https://tankesmed.com/gesmeden -->
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -158,8 +159,11 @@ hr{border:none;border-top:1px solid var(--bd);margin:1.2rem 0}
   </div>
   <div class="card">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-      <div class="ct" style="margin-bottom:0">Recente facturen</div>
-      <button class="btn bg bs" onclick="showTab('facturen')">Alle facturen &rarr;</button>
+      <div class="ct" style="margin-bottom:0">Factuurhistorie</div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span id="dash-inv-count" style="font-size:.74rem;color:var(--t3)"></span>
+        <button class="btn bg bs" id="dash-toggle" onclick="toggleDashHistory()">Toon alles &rarr;</button>
+      </div>
     </div>
     <div id="recent-invoices"></div>
   </div>
@@ -172,6 +176,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:1.2rem 0}
       <select id="filter-jaar" onchange="renderFacturen()" style="width:auto;padding:.4rem .8rem;font-size:.78rem"><option value="">Alle jaren</option></select>
       <select id="filter-partij" onchange="renderFacturen()" style="width:auto;padding:.4rem .8rem;font-size:.78rem"><option value="">Alle partijen</option><option value="DLR">DLR</option><option value="RCV">RCV</option></select>
       <button class="btn bp bs" onclick="openModal('modal-factuur');initFactuurForm()">+ Factuur toevoegen</button>
+      <button class="btn bo bs" onclick="openModal('modal-batch')" title="Importeer meerdere historische facturen via CSV of Excel">&#8659;&nbsp;Batch import</button>
     </div>
   </div>
   <div id="facturen-wrap"><div class="empty"><div class="ei">&#128196;</div><div class="el">Nog geen facturen ingevoerd.</div></div></div>
@@ -269,6 +274,30 @@ hr{border:none;border-top:1px solid var(--bd);margin:1.2rem 0}
     <button class="btn bg" onclick="closeModal('modal-delete')">Annuleren</button>
     <button class="btn bd2" onclick="doDelete()">Verwijderen</button>
   </div>
+</div>
+</div>
+
+
+<!-- Batch import modal -->
+<div class="mbg" id="modal-batch">
+<div class="modal" style="max-width:560px">
+  <button class="mc" onclick="closeModal('modal-batch')">&#10005;</button>
+  <div class="mhd"><div class="mt">Batch import historische facturen</div></div>
+  <p style="font-size:.83rem;color:var(--t2);margin-bottom:1.2rem;line-height:1.7">
+    Upload een <strong>CSV of Excel</strong>-bestand met historische facturen. Kolommen (in deze volgorde):<br>
+    <code style="font-size:.72rem;background:var(--bg2);padding:.2rem .5rem;border-radius:3px">datum, nummer, partij, termijn, jaar, type, verwacht, gefactureerd, betaald, betaaldatum, notities</code>
+  </p>
+  <div style="margin-bottom:1rem">
+    <button class="btn bo bs" onclick="downloadBatchTemplate()" style="margin-bottom:.8rem">&#8659;&nbsp;Download template (CSV)</button>
+    <div class="dzone" id="batch-drop" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleBatchDrop(event)">
+      <input type="file" accept=".csv,.xlsx,.xls" onchange="handleBatchFile(event)">
+      <div style="font-size:1.5rem;opacity:.4;margin-bottom:.4rem">&#128196;</div>
+      <div style="font-weight:500;color:var(--t2);font-size:.86rem">Sleep een CSV of Excel-bestand hierheen</div>
+      <div style="font-size:.74rem;color:var(--t3);margin-top:.2rem">of klik om te kiezen</div>
+    </div>
+  </div>
+  <div id="batch-preview" class="pp" style="display:none"></div>
+  <div id="batch-result" style="display:none;margin-top:1rem"></div>
 </div>
 </div>
 
@@ -429,15 +458,24 @@ function setCPIStatus(state,txt){
 }
 
 // CBS CPI
-const CBS_API="https://opendata.cbs.nl/ODataApi/odata/86141NED/TypedDataSet?$filter=Bestedingscategorieen eq '000000' and endswith(Perioden,'JJ00')&$select=Perioden,CPI_1,Jaarmutatie_2&$orderby=Perioden&$format=json";
+const CBS_API="https://opendata.cbs.nl/ODataApi/odata/86141NED/TypedDataSet?%24filter=Bestedingscategorieen%20eq%20%27000000%27%20and%20endswith(Perioden%2C%27JJ00%27)&%24select=Perioden%2CCPI_1%2CJaarmutatie_2&%24orderby=Perioden&%24format=json";
+const CBS_API_PROXY="https://opendata.cbs.nl/ODataFeed/OData/86141NED/TypedDataSet?%24filter=Bestedingscategorieen%20eq%20%27000000%27%20and%20endswith(Perioden%2C%27JJ00%27)&%24select=Perioden%2CCPI_1%2CJaarmutatie_2&%24orderby=Perioden&%24format=json";
 
 async function refreshCPI(force=false){
   if(!force&&STATE.cpi.updated){const h=(Date.now()-new Date(STATE.cpi.updated).getTime())/3600000;if(h<24){setCPIStatus('ok','CBS bijgewerkt '+fmtDT(STATE.cpi.updated));return;}}
   setCPIStatus('loading','CBS ophalen...');
   const btn=_q('cpi-btn');if(btn){btn.disabled=true;btn.innerHTML='<span class="spinner"></span>&nbsp;Laden...';}
   try{
-    const res=await fetch(CBS_API);if(!res.ok)throw new Error('HTTP '+res.status);
-    const json=await res.json();
+    // Probeer meerdere CBS-endpoints met proper CORS headers
+    let json=null;
+    const urls=[CBS_API,CBS_API_PROXY];
+    for(const url of urls){
+      try{
+        const res=await fetch(url,{mode:'cors',headers:{Accept:'application/json'}});
+        if(res.ok){json=await res.json();break;}
+      }catch(_){continue;}
+    }
+    if(!json)throw new Error('CBS-endpoints niet bereikbaar');
     const vaste={2024:1,2025:1};const newRows=[];
     for(const row of json.value||[]){
       const m=(row.Perioden||'').match(/^(\d{4})JJ00/);if(!m)continue;
@@ -506,9 +544,19 @@ function renderBreakdown(now,cd,ej,gf,idx){
     +'<div style="margin-top:.75rem;font-size:.74rem;color:var(--t3)">Indexatie: '+noIdx+'</div>';
 }
 
+let _dashShowAll=false;
+function toggleDashHistory(){
+  _dashShowAll=!_dashShowAll;
+  const btn=_q('dash-toggle');
+  if(btn)btn.textContent=_dashShowAll?'← Toon minder':'Toon alles →';
+  renderRecent();
+}
 function renderRecent(){
-  const recent=[...STATE.invoices].sort((a,b)=>new Date(b.aangemaakt||b.datum)-new Date(a.aangemaakt||a.datum)).slice(0,5);
-  _q('recent-invoices').innerHTML=recent.length?invTable(recent,false)
+  const sorted=[...STATE.invoices].sort((a,b)=>new Date(b.datum)-new Date(a.datum));
+  const shown=_dashShowAll?sorted:sorted.slice(0,8);
+  const count=_q('dash-inv-count');
+  if(count)count.textContent=sorted.length?`${shown.length} van ${sorted.length}`:'';
+  _q('recent-invoices').innerHTML=shown.length?invTable(shown,false)
     :'<div class="empty"><div class="ei">&#128203;</div><div class="el">Nog geen facturen. Klik op &ldquo;+ Factuur&rdquo; om te beginnen.</div></div>';
 }
 
@@ -696,6 +744,89 @@ function updateJaarFilter(){
   sel.innerHTML='<option value="">Alle jaren</option>'+jaren.map(j=>'<option value="'+j+'"'+(String(j)===cur?' selected':'')+'>'+j+'</option>').join('');
 }
 
+
+// Batch import
+function downloadBatchTemplate(){
+  const header='datum,nummer,partij,termijn,jaar,type,verwacht,gefactureerd,betaald,betaaldatum,notities';
+  const ex='2024-04-01,2024-001,DLR,T1,2024,basis,22220.80,22220.80,true,2024-03-28,Eerste termijn 2024\n2024-10-01,2024-002,DLR,T2,2024,basis,22220.80,22220.80,true,2024-09-30,Tweede termijn 2024';
+  const blob=new Blob([header+'\n'+ex],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='batch_template.csv';a.click();
+}
+function handleBatchDrop(e){e.preventDefault();e.currentTarget.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f)processBatchFile(f);else toast('Selecteer een CSV of Excel','error');}
+function handleBatchFile(e){const f=e.target.files[0];if(f)processBatchFile(f);}
+
+async function processBatchFile(file){
+  const prev=_q('batch-preview'),res=_q('batch-result');
+  prev.style.display='block';prev.textContent='Bestand inlezen...';res.style.display='none';
+  try{
+    let rows=[];
+    if(file.name.endsWith('.csv')||file.name.endsWith('.txt')){
+      const txt=await file.text();
+      const lines=txt.trim().split(/\r?\n/);
+      const header=lines[0].split(',').map(h=>h.trim().replace(/^"|"$/g,'').toLowerCase());
+      for(let i=1;i<lines.length;i++){
+        if(!lines[i].trim())continue;
+        const vals=lines[i].split(',').map(v=>v.trim().replace(/^"|"$/g,''));
+        const r={};header.forEach((h,j)=>r[h]=vals[j]||'');rows.push(r);
+      }
+    } else if(window.XLSX){
+      const buf=await file.arrayBuffer();
+      const wb=XLSX.read(buf);const ws=wb.Sheets[wb.SheetNames[0]];
+      rows=XLSX.utils.sheet_to_json(ws,{defval:''});
+      rows=rows.map(r=>{const n={};Object.keys(r).forEach(k=>n[k.toLowerCase().trim()]=String(r[k]));return n;});
+    } else {throw new Error('Excel-bestanden vereisen de XLSX-library (laadt automatisch)');}
+
+    prev.textContent=`${rows.length} rij(en) gevonden. Voorbeeld:\n`+JSON.stringify(rows[0],null,2).slice(0,300);
+
+    // Parse en opslaan
+    const imported=[];const errors=[];
+    for(const r of rows){
+      try{
+        const datum=r.datum||r.date||r.factuurdatum||'';
+        if(!datum)continue;
+        const partij=(r.partij||r.party||'DLR').toUpperCase();
+        const termijn=(r.termijn||r.term||'T1').toUpperCase();
+        const jaar=parseInt(r.jaar||r.year||new Date(datum).getFullYear());
+        const type=(r.type||'basis').toLowerCase();
+        const verwacht=parseFloat((r.verwacht||r.expected||'').toString().replace(',','.'))||null;
+        const gefact=parseFloat((r.gefactureerd||r.amount||r.bedrag||'').toString().replace(',','.'))||null;
+        const betaald=(r.betaald||r.paid||'').toString().toLowerCase()==='true'||r.betaald==='1'||r.betaald==='ja';
+        const betaaldatum=r.betaaldatum||r.paiddate||null;
+        const notities=r.notities||r.notes||'';
+        const inv={id:crypto.randomUUID(),datum,nummer:r.nummer||r.number||'',partij,termijn,jaar,type,verwacht,gefactureerd:gefact,betaald,betaaldatum:betaaldatum||null,notities,erfpachtjaar:ejVoorTermijn(jaar,termijn),aangemaakt:new Date().toISOString()};
+        imported.push(inv);
+      }catch(e){errors.push(`Rij ${rows.indexOf(r)+2}: ${e.message}`);}
+    }
+
+    if(!imported.length){prev.textContent='Geen geldige facturen gevonden. Controleer de kolomnamen.';return;}
+
+    // Dedupliceer op nummer+jaar+partij
+    const existing=new Set(STATE.invoices.map(i=>`${i.nummer}_${i.jaar}_${i.partij}`));
+    const nieuw=imported.filter(i=>!existing.has(`${i.nummer}_${i.jaar}_${i.partij}`));
+    const dupes=imported.length-nieuw.length;
+
+    STATE.invoices.unshift(...nieuw);saveLS();updateJaarFilter();renderAll();
+
+    // Supabase upload
+    let sbOk=0;
+    if(sb&&sbOnline&&nieuw.length){
+      setSync Status('sync',`${nieuw.length} facturen opslaan...`);
+      for(const inv of nieuw){
+        const {error}=await sb.from('canon_facturen').insert({id:inv.id,datum:inv.datum,nummer:inv.nummer||null,partij:inv.partij,termijn:inv.termijn,jaar:inv.jaar,type:inv.type,verwacht:inv.verwacht,gefactureerd:inv.gefactureerd,betaald:inv.betaald,betaaldatum:inv.betaaldatum||null,notities:inv.notities||null,erfpachtjaar:inv.erfpachtjaar});
+        if(!error)sbOk++;
+      }
+      setSyncStatus('ok','Gesynchroniseerd');
+    }
+
+    res.style.display='block';
+    res.innerHTML=`<div style="background:var(--glt);color:var(--gm);padding:.8rem 1rem;border-radius:var(--r);font-size:.82rem">
+      ✓ <strong>${nieuw.length}</strong> facturen geïmporteerd${sbOk?`, ${sbOk} naar Supabase gesynchroniseerd`:''}${dupes?`<br>⚠ ${dupes} duplicaten overgeslagen (zelfde nummer+jaar+partij)`:''}.
+      ${errors.length?`<br>⚠ ${errors.length} rij(en) overgeslagen door fouten.`:''}
+    </div>`;
+    toast(`${nieuw.length} facturen geïmporteerd`,'success');
+  }catch(e){prev.textContent='Fout: '+e.message;toast('Import mislukt: '+e.message,'error');}
+}
+
 function renderAll(){renderDashboard();renderFacturen();renderCPI();updateJaarFilter();}
 
 document.addEventListener('DOMContentLoaded',async()=>{
@@ -705,5 +836,10 @@ document.addEventListener('DOMContentLoaded',async()=>{
 });
 
 </script>
+<footer style="padding:1.5rem;text-align:center;font-size:.8125rem;opacity:.7">
+  <a href="https://tankesmed.com/gesmeden?van=Canon_Monitor_DLR"
+     target="_blank" rel="noopener noreferrer"
+     style="color:inherit;text-decoration:none">Gesmeden door Jons Tankesmed</a>
+</footer>
 </body>
 </html>
