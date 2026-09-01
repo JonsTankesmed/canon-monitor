@@ -810,7 +810,7 @@ async function processBatchFile(file){
     // Supabase upload
     let sbOk=0;
     if(sb&&sbOnline&&nieuw.length){
-      setSync Status('sync',`${nieuw.length} facturen opslaan...`);
+      setSyncStatus('sync',`${nieuw.length} facturen opslaan...`);
       for(const inv of nieuw){
         const {error}=await sb.from('canon_facturen').insert({id:inv.id,datum:inv.datum,nummer:inv.nummer||null,partij:inv.partij,termijn:inv.termijn,jaar:inv.jaar,type:inv.type,verwacht:inv.verwacht,gefactureerd:inv.gefactureerd,betaald:inv.betaald,betaaldatum:inv.betaaldatum||null,notities:inv.notities||null,erfpachtjaar:inv.erfpachtjaar});
         if(!error)sbOk++;
